@@ -18,14 +18,18 @@ class CharacterTest {
         assertEquals(1L, spiderman.getLevel());
         assertEquals(true, spiderman.isAlive());
     }
-
     @Test
-    void damage(){
+    void healthAffectedByDamage(){
         var victim = new Character();
         var aggressor = new Character();
-
         aggressor.attacks(victim, 100L);
-
         assertEquals(900, victim.getHealth());
+    }
+    @Test
+    void bigDamage(){
+        var victim = new Character();
+        var aggressor = new Character();
+        aggressor.attacks(victim, 1020L);
+        assertEquals(0, victim.getHealth());
     }
 }

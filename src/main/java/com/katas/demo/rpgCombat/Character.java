@@ -16,10 +16,15 @@ public class Character {
     }
 
     public void attacks(Character victim, Long damage) {
-        victim.setHealth(victim.getHealth() - damage);
+        victim.damage(damage);
     }
 
-    public void setHealth(Long actualHealth){
-        this.health = actualHealth;
+    public void damage(Long damage){
+        if(this.health < damage){
+            this.health = 0L;
+            this.alive = false;
+            return;
+        }
+        this.health -= damage;
     }
 }
