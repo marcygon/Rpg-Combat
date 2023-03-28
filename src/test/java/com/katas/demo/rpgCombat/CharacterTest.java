@@ -33,10 +33,16 @@ class CharacterTest {
         assertEquals(0, victim.getHealth());
     }
     @Test
-    void ifCharacterIsDeadCannotBeHealed(){
+    void characterHealsCharacter(){
         var character1 = new Character();
         var character2 = new Character();
-        character1.heals(character2, 50L);
-        assertEquals(950L, character2.getHealth());
+        character1.heals(character2, true, 950L);
+        assertEquals(1000L, character2.getHealth());
     }
+
+
+
+
+
+
 }

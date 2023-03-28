@@ -27,12 +27,20 @@ public class Character {
         }
         this.health -= damage;
     }
-    public void heals(Character character, Long health){
-        character.heal(health);
+    public void heals(Character character, Boolean alive, Long health){
+        if(alive && health > 1 && health < 950){
+            character.heal(health);
+        }
     }
+
     public void heal(Long health){
-        if(health < 950){
-            this.health += 50L;
+        if(health > 1 && health < 950){
+            Long newHealth = this.health + 50L;
+            if(newHealth <= 1000L){
+                this.health = newHealth;
+            } else {
+                this.health = 1000L;
+            }
         }
     }
 }
