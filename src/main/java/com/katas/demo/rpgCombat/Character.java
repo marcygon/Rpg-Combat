@@ -27,4 +27,12 @@ public class Character {
         }
         this.health -= damage;
     }
+    public void heals(Character character, Long health){
+        character.heal(health);
+    }
+    public void heal(Long health){
+        if(health < 950){
+            this.health += 50L;
+        }
+    }
 }

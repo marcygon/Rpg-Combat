@@ -26,10 +26,17 @@ class CharacterTest {
         assertEquals(900, victim.getHealth());
     }
     @Test
-    void bigDamage(){
+    void ifDamageIsBiggerThanHealthCharacterDies(){
         var victim = new Character();
         var aggressor = new Character();
         aggressor.attacks(victim, 1020L);
         assertEquals(0, victim.getHealth());
+    }
+    @Test
+    void ifCharacterIsDeadCannotBeHealed(){
+        var character1 = new Character();
+        var character2 = new Character();
+        character1.heals(character2, 50L);
+        assertEquals(950L, character2.getHealth());
     }
 }
