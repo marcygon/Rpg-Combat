@@ -14,4 +14,12 @@ public class Character {
     public boolean isAlive() {
         return this.alive;
     }
+
+    public void attacks(Character victim, Long damage) {
+        victim.setHealth(victim.getHealth() - damage);
+    }
+
+    public void setHealth(Long actualHealth){
+        this.health = actualHealth;
+    }
 }
