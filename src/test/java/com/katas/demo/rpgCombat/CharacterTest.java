@@ -36,8 +36,8 @@ class CharacterTest {
     void characterHealsCharacter(){
         var character1 = new Character();
         var character2 = new Character();
-        character1.heals(character2, true, 950L);
-        assertEquals(1000L, character2.getHealth());
+        character1.heals(character2, true);
+        assertEquals(960L, character2.getHealth());
     }
 
 

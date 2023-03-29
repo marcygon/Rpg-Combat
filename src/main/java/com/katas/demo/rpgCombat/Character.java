@@ -1,7 +1,7 @@
 package com.katas.demo.rpgCombat;
 
 public class Character {
-    private Long health = 1000L;
+    private Long health = 960L;
     private Long level = 1L;
     private Boolean alive = true;
 
@@ -27,19 +27,18 @@ public class Character {
         }
         this.health -= damage;
     }
-    public void heals(Character character, Boolean alive, Long health){
-        if(alive && health > 1 && health < 950){
-            character.heal(health);
+    public void heals(Character character, Boolean isAlive){
+        if(isAlive == true){
+            character.heal(this.health);
         }
     }
-
     public void heal(Long health){
-        if(health > 1 && health < 950){
+        if(health >= 1 && health <= 950){
             Long newHealth = this.health + 50L;
-            if(newHealth <= 1000L){
+            if(newHealth <= 950L){
                 this.health = newHealth;
             } else {
-                this.health = 1000L;
+                this.health = health;
             }
         }
     }
